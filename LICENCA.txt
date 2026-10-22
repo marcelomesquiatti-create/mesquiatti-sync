@@ -1,0 +1,44 @@
+MESQUIATTI SYNC
+Licença de uso gratuito (freeware)
+
+Copyright © 2026 Marcelo Mesquiatti. Todos os direitos reservados.
+
+O Mesquiatti Sync é distribuído gratuitamente. Ao instalar ou usar o
+programa, você concorda com os termos abaixo.
+
+1. USO PERMITIDO
+   Você pode instalar e usar o Mesquiatti Sync gratuitamente, em quantos
+   computadores quiser, para fins pessoais ou profissionais, inclusive em
+   trabalhos pagos (casamentos, eventos, produções etc.).
+
+2. DISTRIBUIÇÃO
+   Você pode compartilhar o instalador original, sem modificações, desde que
+   seja de graça e mantenha este aviso e os arquivos de licença.
+   Não é permitido vender o programa, cobrar por ele ou incluí-lo em
+   produtos ou pacotes pagos.
+
+3. RESTRIÇÕES
+   Não é permitido modificar, descompilar, desmontar ou fazer engenharia
+   reversa do programa, nem redistribuí-lo com outro nome ou marca, exceto
+   nos casos em que a lei permitir expressamente.
+   Essas restrições valem para o código do Mesquiatti Sync. Os componentes de
+   terceiros incluídos seguem suas próprias licenças (veja abaixo).
+
+4. COMPONENTES DE TERCEIROS
+   O Mesquiatti Sync inclui software de terceiros (FFmpeg, Qt/PySide6,
+   NumPy, SciPy, imageio-ffmpeg), cada um sob sua própria licença. Os
+   avisos e textos completos estão no arquivo "Licenças de terceiros",
+   disponível na tela "Sobre" do programa. Nada nesta licença limita os
+   direitos que essas licenças garantem a você.
+
+5. SEM GARANTIA
+   O programa é fornecido "como está", sem garantia de qualquer tipo. Confira
+   sempre a sincronização antes de entregar um trabalho. O autor não se
+   responsabiliza por perdas, danos ou prejuízos decorrentes do uso do
+   programa.
+
+6. APOIO
+   O programa é e continuará gratuito. Quem quiser apoiar o projeto pode
+   fazer uma doação voluntária; doar não muda os termos desta licença.
+
+Instagram: @m.mesquiatti  ·  @mesquiattifotografia

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesquiatti Sync</title>
+<meta name="description" content="Sincronize câmeras e gravadores pelo áudio e exporte para Premiere Pro e DaVinci Resolve. Grátis para Mac.">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #1e1f22; --panel: #25262a; --line: #33353a; --text: #dfe1e5; --muted: #9aa0a6;
+    --blue: #2f6fe0; --blue-h: #3b7cf0; --pink: #ff7a93; --pink-bg: #3a2329; --pink-line: #7a3846;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  a { color: #6ea8ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); }
+  .brand img { width: 32px; height: 32px; }
+  nav a { color: var(--muted); margin-left: 18px; font-size: 15px; }
+  .hero { text-align: center; padding: 72px 0 56px; }
+  .hero img { width: 128px; height: 128px; }
+  h1 { font-size: clamp(32px, 6vw, 48px); margin: 16px 0 8px; line-height: 1.15; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 600; font-size: 17px; border: 1px solid transparent; cursor: pointer; }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: var(--blue-h); }
+  .btn-support { background: var(--pink-bg); border-color: var(--pink-line); color: #ff9aac; }
+  .btn-support:hover { background: #4a2a32; }
+  .meta { color: var(--muted); font-size: 14px; margin-top: 12px; }
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 28px; margin: 0 0 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .step { font-size: 13px; font-weight: 700; color: var(--blue-h); letter-spacing: .04em; }
+  .formats code { background: #2b2d31; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+  .support { background: linear-gradient(180deg, #2a2025, var(--bg)); }
+  .support h2 { color: var(--pink); }
+  .pix { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-top: 20px; }
+  .qr { width: 200px; height: 200px; background: #fff; border-radius: 12px; padding: 8px; }
+  .pix-key { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+  .pix-key input { flex: 1; min-width: 200px; background: #2b2d31; border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 10px 12px; font-size: 15px; }
+  .pix-key button { background: #33353a; color: var(--text); border: 1px solid #44464c; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-size: 15px; }
+  .note { background: var(--panel); border-left: 3px solid var(--blue); padding: 14px 18px; border-radius: 6px; color: var(--muted); font-size: 15px; }
+  footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 14px; }
+  footer p { margin: 4px 0; }
+  /* janela de agradecimento após o download */
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center; padding: 16px; }
+  .modal.open { display: flex; }
+  .modal-box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 28px; max-width: 460px; width: 100%; }
+  .modal-box h3 { margin: 0 0 8px; color: var(--pink); font-size: 22px; }
+  .modal-box p { color: var(--muted); }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; margin-top: 18px; }
+  .btn-plain { background: #33353a; color: var(--text); border-color: #44464c; }
+  @media (max-width: 560px) { nav { display: none; } .hero { padding: 48px 0 40px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="icon.png" alt="">Mesquiatti Sync</a>
+    <nav><a href="#como-funciona">Como funciona</a><a href="#instalar">Instalar</a><a href="#apoie">Apoie</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <img src="icon.png" alt="Ícone do Mesquiatti Sync">
+    <h1>Sincronize suas câmeras pelo áudio</h1>
+    <p class="lead">Arraste os vídeos e os áudios dos gravadores, clique em sincronizar e exporte um XML pronto para o Premiere Pro ou o DaVinci Resolve.</p>
+    <!-- sempre a release mais recente; o .dmg anexado precisa se chamar Mesquiatti-Sync.dmg -->
+    <a class="btn btn-primary" id="download"
+       href="https://github.com/marcelomesquiatti-create/mesquiatti-sync/releases/latest/download/Mesquiatti-Sync.dmg">
+      ⬇ Baixar para Mac
+    </a>
+    <p class="meta">Versão 1.0.0 · Mac com chip Apple (M1 ou mais novo) · macOS 12 ou mais novo · Grátis</p>
+  </div>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <h2>Como funciona</h2>
+      <div class="grid">
+        <div class="card"><div class="step">PASSO 1</div><h3>Arraste os arquivos</h3><p>Vídeos de todas as câmeras e os áudios dos gravadores, tudo de uma vez.</p></div>
+        <div class="card"><div class="step">PASSO 2</div><h3>Sincronize</h3><p>O programa compara o áudio e o horário das câmeras e encontra a posição de cada clipe.</p></div>
+        <div class="card"><div class="step">PASSO 3</div><h3>Exporte o XML</h3><p>Importe no Premiere ou no DaVinci com a timeline montada e as câmeras coloridas por grupo.</p></div>
+      </div>
+      <p class="formats" style="margin-top:24px;color:var(--muted)">
+        Vídeo: <code>MOV</code> <code>MP4</code> <code>MXF</code> <code>MTS</code> <code>AVI</code> <code>MKV</code> ·
+        Áudio: <code>WAV</code> <code>BWF</code> <code>MP3</code> <code>AIFF</code> <code>M4A</code> <code>FLAC</code>
+      </p>
+    </div>
+  </section>
+
+  <section id="instalar">
+    <div class="wrap">
+      <h2>Instalação</h2>
+      <div class="grid">
+        <div class="card"><h3>1. Abra o .dmg</h3><p>Arraste o Mesquiatti Sync para a pasta Aplicativos.</p></div>
+        <div class="card"><h3>2. Primeira abertura</h3><p>Clique com o botão direito no app e escolha <b>Abrir</b>. Depois disso, ele abre normalmente.</p></div>
+      </div>
+      <p class="note" style="margin-top:16px">Se o Mac disser que o app não pode ser aberto, vá em <b>Ajustes do Sistema → Privacidade e Segurança</b> e clique em <b>Abrir Mesmo Assim</b>.</p>
+    </div>
+  </section>
+
+  <section id="apoie" class="support">
+    <div class="wrap">
+      <h2>♥ Apoie o projeto</h2>
+      <p style="max-width:640px">O Mesquiatti Sync é gratuito e vai continuar sendo. Se ele economiza horas da sua edição, considere apoiar o desenvolvimento com uma doação de qualquer valor.</p>
+      <div class="pix">
+        <!-- QR Code Pix estático (sem valor definido): quem doa escolhe o valor no app do banco -->
+        <img class="qr" src="pix-qr.svg" alt="QR Code Pix para doação">
+        <div style="flex:1;min-width:240px">
+          <b>Chave Pix (aleatória)</b>
+          <div class="pix-key">
+            <input id="pixkey" readonly value="c7f88c83-0a94-45fe-aee2-a5007699f116">
+            <button data-copy="pixkey">Copiar</button>
+          </div>
+          <b>Pix Copia e Cola</b>
+          <div class="pix-key">
+            <input id="pixcode" readonly value="00020126580014br.gov.bcb.pix0136c7f88c83-0a94-45fe-aee2-a5007699f1165204000053039865802BR5920MARCELO D MESQUIATTI6005BAURU62070503***63049EAC">
+            <button data-copy="pixcode">Copiar</button>
+          </div>
+          <p style="color:var(--muted);font-size:14px;margin:0">Recebedor: Marcelo Denison Mesquiatti · Bauru, SP<br>Abra o app do seu banco, escolha Pix e leia o QR Code ou cole o código. Qualquer valor ajuda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Marcelo Mesquiatti. Todos os direitos reservados. · <a href="LICENCA.txt">Licença</a> · <a href="LICENCAS_DE_TERCEIROS.txt">Licenças de terceiros</a></p>
+    <p>Inclui FFmpeg (GPL) · <a href="https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz">código-fonte do FFmpeg 7.1</a></p>
+    <p>Instagram: <a href="https://instagram.com/m.mesquiatti">@m.mesquiatti</a> · <a href="https://instagram.com/mesquiattifotografia">@mesquiattifotografia</a></p>
+  </div>
+</footer>
+
+<div class="modal" id="thanks" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+  <div class="modal-box">
+    <h3 id="thanks-title">♥ Obrigado por baixar!</h3>
+    <p>O download já começou. O Mesquiatti Sync é feito por uma pessoa só, nas horas vagas. Se ele te ajudar, uma doação de qualquer valor faz diferença.</p>
+    <div class="modal-actions">
+      <button class="btn btn-plain" id="close">Agora não</button>
+      <a class="btn btn-support" href="#apoie" id="go-support">Quero apoiar</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('thanks');
+  // o download segue normalmente; a janela aparece por cima pedindo apoio
+  document.getElementById('download').addEventListener('click', () => {
+    setTimeout(() => modal.classList.add('open'), 600);
+  });
+  document.getElementById('close').onclick = () => modal.classList.remove('open');
+  document.getElementById('go-support').onclick = () => modal.classList.remove('open');
+  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.onclick = async () => {
+    const field = document.getElementById(btn.dataset.copy);
+    try { await navigator.clipboard.writeText(field.value); btn.textContent = 'Copiado!'; }
+    catch { field.select(); btn.textContent = 'Selecionado'; }
+    setTimeout(() => btn.textContent = 'Copiar', 2000);
+  });
+</script>
+</body>
+</html>
